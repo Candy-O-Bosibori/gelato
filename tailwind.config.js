@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         logo: ["Mea Culpa"],
+        normal: ["PT Serif"]
       },
       colors:{
         "babypink":"#eec4c6",
