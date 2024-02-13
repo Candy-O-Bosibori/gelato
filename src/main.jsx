@@ -9,13 +9,13 @@ import {
 } from "react-router-dom";
 import Layout from "./Layout.jsx";
 import Home from "./components/Home/Home.jsx";
-import Menu from "./components/Menu/Menu.jsx";
+import MyCart from "./components/MyCart/MyCart.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
-      <Route path="menu" element={<Menu />} />
+      <Route path="MyCart" element={< MyCart/>} />
     </Route>
   )
 );
