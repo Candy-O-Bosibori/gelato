@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import Price from "./Price";
 
-function Categories() {
-  const [data, setData] = useState([]);
+function Categories({data, addItem}) {
+ 
   
+function handleAddToCart(id, price){
 
-  useEffect(() => {
-    fetch(
-      "https://my-json-server.typicode.com/Candy-O-Bosibori/gelato-API/Products"
-    )
-      .then((resp) => resp.json())
-      .then((items) => setData(items));
-  }, []);
+  const singleItem = data.map(item=> item)
 
+  if (singleItem.id === id){
+  addItem(id, price, singleItem.title)
+
+  }
+}
+ 
   return (
     <div className="section px-10" id="recipie">
       <div className="flex flex-col items-center">
@@ -40,7 +40,7 @@ function Categories() {
 
                 <p className="text-[0.85rem] opacity-70 mb-4 font-normal"> {item.desc}</p>
                 <div className=" flex items-center justify-between">
-                  <Price price={item.price} id={item.id} options={item.options}/>
+                  <Price price={item.price} id={item.id} options={item.options} addToCart={handleAddToCart}/>
                  
                 </div>
               </div>

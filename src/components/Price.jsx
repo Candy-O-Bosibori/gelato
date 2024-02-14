@@ -1,7 +1,5 @@
-import { BuildingStorefrontIcon } from "@heroicons/react/24/outline";
-
-
 import React, { useEffect, useState } from "react";
+
 
 function Price({ price, id, options }) {
   const [total, setTotal] = useState(price);
@@ -32,24 +30,15 @@ function Price({ price, id, options }) {
             {option.title}
           </button>
         ))}
-      </div>
+      </div > 
       {/* quantity */}
       <div className="flex  justify-between items-center ring-darkcherry">
         <div className="flex justify-between w-full p-3 ring-1 ring-darkcherry">
           <span>Quantity</span>
           <div className="flex gap-4 items-center">
-            <button
-              onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
-            >
-              {" "}
-              {"<"}
-            </button>
+            <button  onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}>{"<"}</button>
             <span>{quantity}</span>
-            <button
-              onClick={() => setQuantity((prev) => (prev < 9 ? prev + 1 : 9))}
-            >
-              {">"}
-            </button>
+            <button  onClick={() => setQuantity((prev) => (prev < 9 ? prev + 1 : 9))}>{">"}</button>
           </div>
         </div>
         {/* cart */}
