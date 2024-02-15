@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'My Cart', href: 'MyCart', current: false },
+  { name: 'My Cart', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -13,6 +13,8 @@ function classNames(...classes) {
 }
 
  function Header() {
+
+  
   return (
     <Disclosure as="nav" className="bg-cherry">
       {({ open }) => (
