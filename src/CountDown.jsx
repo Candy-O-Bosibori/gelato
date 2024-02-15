@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
-class CountDown extends Component {
+class Offertime extends Component {
   constructor(props) {
     super(props);
-    const difference = +new Date(`03/01/2024`) - +new Date();
+    const targetDate = new Date("2024/03/01");
+    const currentDate = new Date();
+    const difference = targetDate.getTime() - currentDate.getTime();
     this.state = {
-      delay: difference,
+      delay: difference > 0 ? difference : 0,
     };
   }
 
@@ -34,4 +36,4 @@ class CountDown extends Component {
   }
 }
 
-export default CountDown;
+export default Offertime;

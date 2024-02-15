@@ -1,6 +1,5 @@
 import React from 'react'
-import CountDown from "./CountDown.jsx";
-
+import Offertime from "/src/CountDown.jsx"
 
 function Offer() {
     return (
@@ -15,7 +14,7 @@ function Offer() {
               of empowerment. Quickly pontificate parallel.
             </p>
             
-            <CountDown/>
+           <Offertime />
             <button className="tbg-ext-darkcherry text-white rounded-md py-3 px-6 rounded-"></button>
       </div>
           </div>
