@@ -1,5 +1,5 @@
 import React from 'react'
-import CountDown from "/home/candy/MORINGA/CODE/phase2/gelato/src/CountDown.jsx";
+import CountDown from "./CountDown.jsx";
 
 
 function Offer() {
