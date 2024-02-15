@@ -1,48 +1,60 @@
+
+
+
+
+import React, { useState, useEffect } from "react";
 import Price from "./Price";
-import React, { useState } from "react";
 
 function Categories({ data }) {
-  const [cartItems, setCartItems] = useState({
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0,
+  const [cartItems, setCartItems] = useState(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    return storedCartItems ? JSON.parse(storedCartItems) : {};
   });
 
-  const addToCart = (id) => {
-    setCartItems((cartItems) => ({ ...cartItems, [id]: cartItems[id] + 1 }));
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
-    console.log(cartItems);
+  const addToCart = (id) => {
+    setCartItems((prevCartItems) => ({
+      ...prevCartItems,
+      [id]: (prevCartItems[id] || 0) + 1,
+    }));
   };
 
-  const  subFromCart =(id)=> {
-setCartItems(cartItems => ({...cartItems, [id]: cartItems[id] - 1}))
-  }
-
-  const  removeFromCart =(id)=> {
-    setCartItems(cartItems => ({...cartItems, [id]: cartItems[id] = 0}))
+  const subFromCart = (id) => {
+    setCartItems((prevCartItems) => {
+      const updatedCartItems = { ...prevCartItems };
+      if (updatedCartItems[id] && updatedCartItems[id] > 0) {
+        updatedCartItems[id] -= 1;
       }
+      return updatedCartItems;
+    });
+  };
 
-const totalAmount = () => {
-  let amount = 0;
-  for (const key in cartItems){
-    if(cartItems[key]> 0){
-      let productInfo = data.find(product=> product.id === Number(key) )
-      amount += Math.floor(cartItems[key] * productInfo.price)
+  const removeFromCart = (id) => {
+    setCartItems((prevCartItems) => {
+      const updatedCartItems = { ...prevCartItems };
+      delete updatedCartItems[id];
+      return updatedCartItems;
+    });
+  };
 
+  const totalAmount = () => {
+    let amount = 0;
+    for (const key in cartItems) {
+      if (cartItems[key] > 0) {
+        const productInfo = data.find((product) => product.id === Number(key));
+        if (productInfo) {
+          amount += Math.floor(cartItems[key] * productInfo.price);
+        }
+      }
     }
-   
-  }
-  return amount;
-}
+    return amount;
+  };
 
   return (
+
     <div className="section px-10" id="recipie">
       <div className="flex flex-col items-center">
         <div className="text-#xl text-center font-bold font-normal">
@@ -124,6 +136,7 @@ const totalAmount = () => {
         </div>
       </div>
     </div>
+    
   );
 }
 

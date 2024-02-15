@@ -6,6 +6,8 @@ import Offer from "../Offer";
 function Home() {
   const [data, setData] = useState([]);
 
+
+  
   useEffect(() => {
     fetch(
       "https://my-json-server.typicode.com/Candy-O-Bosibori/gelato-API/Products"
@@ -27,5 +29,5 @@ function Home() {
 }
 
  
-
 export default Home;
+
