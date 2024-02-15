@@ -32,7 +32,7 @@ useEffect (()=> {
 
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter  basename={import.meta.env.DEV ? '/' : '/react-vite-gh-pages/'}>
     <Routes >
        <Route index path='/' element={<FirstPage></FirstPage>}></Route>
        <Route index path='register' element={<Register></Register>}></Route>
