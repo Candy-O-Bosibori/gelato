@@ -1,39 +1,44 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../../firebase.js";
+import { Link, Navigate } from "react-router-dom";
 
 function Login() {
-    const [userCredentials, setUserCredentials] = useState({});
-  const [error, setError] = useState()
+  const [userCredentials, setUserCredentials] = useState({});
+  const [error, setError] = useState();
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   function handleCredentials(e) {
-    setUserCredentials({...userCredentials, [e.target.name]: e.target.value });
-    console.log(userCredentials);
+    setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
   }
 
-  function logIn (e){
+  function logIn(e) {
     e.preventDefault();
-    setError('')
-    signInWithEmailAndPassword(auth,userCredentials.email, userCredentials.password )
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user);
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setError(error.message)
-    console.log(error.message);
-  });
-  };
+    setError("");
+    signInWithEmailAndPassword(
+      auth,
+      userCredentials.email,
+      userCredentials.password
+    )
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        setLoginSuccess(true);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(error.message);
+      });
+  }
 
-  function handlePasswordReset(){
-    const email = prompt("Please entre your email")
-    sendPasswordResetEmail(auth, email)
-    alert("Password sent")
+  function handlePasswordReset() {
+    const email = prompt("Please entre your email");
+    sendPasswordResetEmail(auth, email);
+    alert("Password sent");
   }
 
   return (
@@ -60,23 +65,27 @@ function Login() {
 
           <button
             type="submit"
-            onClick={logIn}
+            onClick={(e) => logIn(e)}
             className="w-full mb-4 text-[18px] mt-6 rounded-full bg-darkcherry text-white ring-1 ring-darkcherry hover:bg-white hover:text-darkcherry hover:ring-darkcherry transition colors  duration-300"
           >
             Login
           </button>
 
-          {
-    error && <div className="text-red-800 text-[11px]"> {error} </div>
-
-}
-
-<p className="text-[15px] text-blue-900" onClick={handlePasswordReset}>Forgort password?</p>
+          {error && <div className="text-red-800 text-[11px]"> {error} </div>}
+          {loginSuccess && <Navigate to="/private" />}
+          <p
+            className="text-[15px] text-blue-900"
+            onClick={handlePasswordReset}
+          >
+            Forgort password?
+          </p>
 
           <div>
             <span className="mt-4">
-              New Here? <Link to="/register" className="text-blue-900" >
-              {" "} Create a New Account!
+              New Here?{" "}
+              <Link to="/register" className="text-blue-900">
+                {" "}
+                Create a New Account!
               </Link>
             </span>
           </div>
