@@ -1,9 +1,9 @@
-import { useState } from "react";
+
 
 import { Link } from "react-router-dom";
 
 export default function FirstPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+ 
 
   return (
     <div className="bg-babypink h-full">
