@@ -20,7 +20,7 @@ function Price({ price, id, options }) {
         {options.map((option, index) => (
           <button
             className="min-w-[6rem] p-1 ring-1 ring-darkcherry text-darkcherry rounded-md"
-            key={option.titile}
+            key={option.title}
             style={{
               background: selected === index ? "#460d19" : "white",
               color: selected === index ? "white" : "#460d19",

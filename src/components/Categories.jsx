@@ -110,7 +110,7 @@ function Categories({ data }) {
             {data.map((product) => {
               if (cartItems[product.id] > 0) {
                 return (
-                <>
+                <div key={product.id}>
                   <div className="py-1 flex justify-between items-center ring-2 w-full px-3 rounded ring-white mb-2">
                     <div className="flex items-center">
                       <img src={product.img} alt="" height={100} width={100} />
@@ -128,7 +128,7 @@ function Categories({ data }) {
                     <p>-</p>
                     <p>{product.price}</p>
                   </div>
-                  </>
+                  </div>
                 );
               }
             })}

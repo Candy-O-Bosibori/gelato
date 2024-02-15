@@ -1,82 +1,90 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 import { Link } from "react-router-dom";
-import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase.js";
 
-function Login() {
-    const [userCredentials, setUserCredentials] = useState({});
+function Register() {
+  const [userCredentials, setUserCredentials] = useState({});
   const [error, setError] = useState()
+
+
 
   function handleCredentials(e) {
     setUserCredentials({...userCredentials, [e.target.name]: e.target.value });
     console.log(userCredentials);
   }
 
-  function logIn (e){
-    e.preventDefault();
-    setError('')
-    signInWithEmailAndPassword(auth,userCredentials.email, userCredentials.password )
+  function handleSignup(e){
+e.preventDefault()
+setError('')
+createUserWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
   .then((userCredential) => {
-    // Signed in 
+    // Signed up 
     const user = userCredential.user;
-    console.log(user);
+    console.log(user)
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     setError(error.message)
-    console.log(error.message);
+    
+    // ..
   });
-  };
 
-  function handlePasswordReset(){
-    const email = prompt("Please entre your email")
-    sendPasswordResetEmail(auth, email)
-    alert("Password sent")
   }
 
   return (
     <div className="text-white h-[100vh] flex justify-center items-center bg-cover bg-babypink">
       <div className="bg-darkcherry border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative">
-        <h1 className="text-4xl text-whitefont-bold text-center mb-6">Login</h1>
-        <form action="">
+        <h1 className="text-4xl text-whitefont-bold text-center mb-6">
+          Sign Up
+        </h1>
+        <form>
           <div className="relative my-4">
             <input
-              type="email"
+              name="email"
+              type="text"
               className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-babypink  focus:outline-none focus:ring-0 focus:text-white focus:border-"
-              onChange={(e) => handleCredentials(e)}
+              
+              onChange={(e) => {handleCredentials(e)}}
             />
-            <label htmlFor="">Your Email</label>
+            <label htmlFor="email">Your Email</label>
           </div>
           <div className="relative my-4">
             <input
+              name="password"
               type="password"
               className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-babypink  focus:outline-none focus:ring-0 focus:text-white focus:border-"
-              onChange={(e) => handleCredentials(e)}
+            
+              onChange={(e) => {handleCredentials(e)}}
             />
-            <label htmlFor="">Your Password</label>
+            <label htmlFor="password">Your Password</label>
           </div>
 
           <button
-            type="submit"
-            onClick={logIn}
-            className="w-full mb-4 text-[18px] mt-6 rounded-full bg-darkcherry text-white ring-1 ring-darkcherry hover:bg-white hover:text-darkcherry hover:ring-darkcherry transition colors  duration-300"
+            className="w-full mb-4 text-[18px] mt-6 rounded-full bg-darkcherry text-white hover:bg-white hover:text-darkcherry ring-2 ring-darkcherry hover:ring-darkcherry transition colors  duration-300"
+            type="button"
+            onClick={ (e)=> handleSignup(e)}
           >
-            Login
+            Register
           </button>
 
-          {
+{
     error && <div className="text-red-800 text-[11px]"> {error} </div>
-
 }
 
-<p className="text-[15px] text-blue-900" onClick={handlePasswordReset}>Forgort password?</p>
+
+
+<p> Forgot Password</p>
 
           <div>
             <span className="mt-4">
-              New Here? <Link to="/register" className="text-blue-900" >
-              {" "} Create a New Account!
+              Already Have an Account?
+              <Link to="/login" className="text-blue-900">
+                {" "}
+                Login
               </Link>
             </span>
           </div>
@@ -86,4 +94,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

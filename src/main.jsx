@@ -12,6 +12,7 @@ import Layout from "./Layout.jsx";
 import Home from "./components/Home/Home.jsx";
 import MyCart from "./components/MyCart/MyCart.jsx";
 import Login from "./components/Login/Login.jsx";
+import App from "./App.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +26,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <FirstPage />
-    <Login />
+<App />
   </React.StrictMode>
 );

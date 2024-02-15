@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-export default function Example() {
+export default function FirstPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -21,18 +21,18 @@ export default function Example() {
               every bite is a moment of pure joy.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="Login"
+              <Link
+                to ="register"
                 className="rounded-full bg-darkcherry  px-10 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-white hover:text-darkcherry focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:darkcherry"
               >
                 Get started
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Learn more <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

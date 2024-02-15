@@ -10,7 +10,7 @@ function Slider() {
       </div>
       {/* image containerr */}
       <div className="flex-1 w-full relative">
-        <img src="./MainHome.png" alt="" fill className="object-cover"/>
+        <img src="./MainHome.png" alt=""  className="object-cover"/>
       </div>
     </div>
   )
