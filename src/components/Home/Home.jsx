@@ -5,6 +5,7 @@ import Offer from "../Offer";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { SiteData } from "../SiteWrapper";
+import SignOut from "../SignOut";
 
 function Home() {
   const { data } = SiteData();
@@ -14,6 +15,7 @@ function Home() {
       <Slider />
       <Categories data={data} />
       <Offer />
+      <SignOut/>
     </div>
   );
 }

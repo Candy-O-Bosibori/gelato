@@ -3,11 +3,14 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { Link, Navigate } from "react-router-dom";
+import { SiteData } from "../SiteWrapper";
 
 function Register() {
   const [userCredentials, setUserCredentials] = useState({});
   const [error, setError] = useState();
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
+  const { createUser } = SiteData();
 
   function handleCredentials(e) {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
@@ -16,8 +19,8 @@ function Register() {
   function handleSignup(e) {
     e.preventDefault();
     setError("");
-    createUserWithEmailAndPassword(
-      auth,
+    createUser(
+      userCredentials.name,
       userCredentials.email,
       userCredentials.password
     )
@@ -28,8 +31,6 @@ function Register() {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         setError(error.message);
 
         // ..
@@ -43,6 +44,17 @@ function Register() {
           Sign Up
         </h1>
         <form>
+          <div className="relative my-4">
+            <input
+              name="name"
+              type="text"
+              className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-babypink  focus:outline-none focus:ring-0 focus:text-white focus:border-"
+              onChange={(e) => {
+                handleCredentials(e);
+              }}
+            />
+            <label htmlFor="email">Your Name</label>
+          </div>
           <div className="relative my-4">
             <input
               name="email"
@@ -92,4 +104,3 @@ function Register() {
   );
 }
 export default Register;
-

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, } from 'react-router-dom'
-import { ProtectedRoute } from './ProtectedRoute'
+
 import FirstPage from './FirstPage/FirstPage'
 import Login from "./Login/Login";
 import Register from "./Register/Register";
@@ -9,6 +9,7 @@ import { auth } from '../firebase';
 import { onAuthStateChanged } from "firebase/auth";
 import Home from './Home/Home';
 import About from './About';
+import ProtectedRoute from './ProtectedRoute';
 
 
 
@@ -44,9 +45,9 @@ function RouterPage() {
             index
             path="/private"
             element={
-              <ProtectedRoute user={user}>
-                <Home></Home>
-              </ProtectedRoute>
+            <ProtectedRoute>
+              <Home></Home>
+            </ProtectedRoute>
             }
           ></Route>
         </Routes>
