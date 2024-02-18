@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import { auth } from '../firebase';
 import { onAuthStateChanged } from "firebase/auth";
 import Home from './Home/Home';
+import About from './About';
+
 
 
 function RouterPage() {
@@ -37,6 +39,7 @@ function RouterPage() {
           <Route index path="/" element={<FirstPage></FirstPage>}></Route>
           <Route index path="register" element={<Register></Register>}></Route>
           <Route index path="login" element={<Login></Login>}></Route>
+          <Route index path="about" element={<About></About>}></Route>
           <Route
             index
             path="/private"
