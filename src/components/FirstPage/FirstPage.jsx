@@ -28,10 +28,10 @@ export default function FirstPage() {
                 Get started
               </Link>
               <Link
-                to="login"
+                to="About"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
-                Log In<span aria-hidden="true">→</span>
+                Learn More<span aria-hidden="true">→</span>
               </Link>
             </div>
            

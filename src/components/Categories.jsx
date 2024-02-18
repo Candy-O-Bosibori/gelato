@@ -15,6 +15,7 @@ function Categories({ data }) {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // func to add to cart
   const addToCart = (id) => {
     setCartItems((prevCartItems) => ({
       ...prevCartItems,
@@ -22,6 +23,7 @@ function Categories({ data }) {
     }));
   };
 
+// functo to reduce number of items in cart
   const subFromCart = (id) => {
     setCartItems((prevCartItems) => {
       const updatedCartItems = { ...prevCartItems };
@@ -32,6 +34,7 @@ function Categories({ data }) {
     });
   };
 
+    // func to remove from cart
   const removeFromCart = (id) => {
     setCartItems((prevCartItems) => {
       const updatedCartItems = { ...prevCartItems };
@@ -106,15 +109,15 @@ function Categories({ data }) {
             My Cart
           </h1>
           <p className="text-3xl font-bold">Total: {totalAmount()}</p>
-          <div className="w-8/12">
+          <div className="w-12/12 md:w-7/12 sm:w-11/12">
             {data.map((product) => {
               if (cartItems[product.id] > 0) {
                 return (
                 <div key={product.id}>
                   <div className="py-1 flex justify-between items-center ring-2 w-full px-3 rounded ring-white mb-2">
                     <div className="flex items-center">
-                      <img src={product.img} alt="" height={100} width={100} />
-                      x<p className="text-2xl font-bold pl-2">{cartItems[product.id]}</p>
+                      <img src={product.img} alt="" className="h-20 w-30" />
+                      x<p className="text-2xl font-bold pl-2 sm:text-xs">{cartItems[product.id]}</p>
                       
                     </div>
                     <div className="flex flex-col gap-2 font-bold"> 
