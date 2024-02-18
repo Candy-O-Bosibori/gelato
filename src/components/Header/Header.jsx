@@ -2,6 +2,8 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+
 
 const navigation = [
   { name: 'Welcome', href: '/', current: true },
@@ -9,16 +11,29 @@ const navigation = [
   { name: 'About', href: 'about', current: false },
   
 ]
-
+// set dark theme
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
  function Header() {
+  const [theme,setTheme] = useState("light");
+
+  useEffect (()=> {
+    if(theme === "dark"){
+      document.documentElement.classList.add("dark")
+    }else {
+      document.documentElement.classList.remove("dark")
+    }
+  }, [theme])
 
   
+const handleThemeSwitch = ()=> (
+  setTheme(theme === "dark"? "light": "dark")
+)
+
   return (
-    <Disclosure as="nav" className="bg-cherry">
+    <Disclosure as="nav" className="bg-cherry dark:bg-cherryDarkmode">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -61,6 +76,10 @@ function classNames(...classes) {
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
+                  <div className='flex  space-x-4'>
+                  <div>
+                    <button onClick={handleThemeSwitch} className='bg-babypink rounded py-1 px-2 '>Dark Mode</button>
+                  </div>
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-cherry text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
@@ -71,6 +90,7 @@ function classNames(...classes) {
                         alt=""
                       />
                     </Menu.Button>
+                  </div>
                   </div>
                   <Transition
                     as={Fragment}
@@ -127,7 +147,7 @@ function classNames(...classes) {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-darkcherry text-white' : 'text-gray-300 hover:bg-babypink hover:text-darkcherry',
+                     'text-gray-300 hover:bg-babypink hover:text-darkcherry',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}

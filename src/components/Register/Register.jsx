@@ -5,12 +5,13 @@ import { auth } from "../../firebase";
 import { Link, Navigate } from "react-router-dom";
 import { SiteData } from "../SiteWrapper";
 
+
 function Register() {
   const [userCredentials, setUserCredentials] = useState({});
   const [error, setError] = useState();
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
-  const { createUser } = SiteData();
+  const {createUser}  = SiteData()
 
   function handleCredentials(e) {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
@@ -38,13 +39,13 @@ function Register() {
   }
 
   return (
-    <div className="text-white h-[100vh] flex justify-center items-center bg-cover bg-babypink">
+    <div className="text-white h-[100vh] flex justify-center items-center bg-cover bg-babypink dark:bg-bpdm">
       <div className="bg-darkcherry border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative">
         <h1 className="text-4xl text-whitefont-bold text-center mb-6">
           Sign Up
         </h1>
         <form>
-          <div className="relative my-4">
+        <div className="relative my-4">
             <input
               name="name"
               type="text"
@@ -92,7 +93,7 @@ function Register() {
           <div>
             <span className="mt-4">
               Already Have an Account?
-              <Link to="/login" className="text-blue-900">
+              <Link to="/login" className="text-blue-900 dark:text-blue-500">
                 {" "}
                 Login
               </Link>
@@ -104,3 +105,4 @@ function Register() {
   );
 }
 export default Register;
+

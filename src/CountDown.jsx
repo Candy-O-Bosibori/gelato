@@ -29,7 +29,7 @@ class Offertime extends Component {
     const s = Math.floor((delay / 1000) % 60);
 
     return (
-      <span className="font-bold text-5xl text-darkcherry">
+      <span className="font-bold text-5xl text-darkcherry dark:text-babypink">
         {d}:{h}:{m}:{s}
       </span>
     );

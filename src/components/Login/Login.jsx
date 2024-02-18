@@ -39,18 +39,18 @@ function Login() {
   }
 
   return (
-    <div className="text-white h-[100vh] flex justify-center items-center bg-cover bg-babypink">
-      <div className="bg-darkcherry border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative">
-        <h1 className="text-4xl text-whitefont-bold text-center mb-6">Login</h1>
+    <div className="text-darkcherry h-[100vh] flex justify-center items-center bg-cover bg-babypink dark:bg-bpdm">
+      <div className="bg-darkcherry  border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative">
+        <h1 className="text-4xl text-whitefont-bold text-center mb-6 dark:text-white">Login</h1>
         <form action="">
           <div className="relative my-4">
             <input
              name="email"
               type="email"
-              className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-babypink  focus:outline-none focus:ring-0 focus:text-white focus:border-"
+              className="block w-72 py-2.3 px-0 text-sm text-white  dark:text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-babypink  focus:outline-none focus:ring-0 focus:text-white focus:border-"
               onChange={(e) => handleCredentials(e)}
             />
-            <label htmlFor="">Your Email</label>
+            <label htmlFor="" className="dark:text-white">Your Email</label>
           </div>
           <div className="relative my-4">
             <input
@@ -59,7 +59,7 @@ function Login() {
               className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-babypink  focus:outline-none focus:ring-0 focus:text-white focus:border-"
               onChange={(e) => handleCredentials(e)}
             />
-            <label htmlFor="">Your Password</label>
+            <label htmlFor="" className="dark:text-white">Your Password</label>
           </div>
 
           <button
@@ -73,16 +73,16 @@ function Login() {
           {error && <div className="text-red-800 text-[11px]"> {error} </div>}
           {loginSuccess && <Navigate to="/private" />}
           <p
-            className="text-[15px] text-blue-900"
+            className="text-[15px] text-blue-900  dark:text-blue-500"
             onClick={handlePasswordReset}
           >
             Forgort password?
           </p>
 
           <div>
-            <span className="mt-4">
+            <span className="mt-4 dark:text-white">
               New Here?{" "}
-              <Link to="/register" className="text-blue-900">
+              <Link to="/register" className="text-blue-900 dark:text-blue-500">
                 {" "}
                 Create a New Account!
               </Link>

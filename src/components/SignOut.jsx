@@ -18,7 +18,7 @@ alert("Do you what to log out?")
 }
 
   return (
-    <div className='bg-babypink p-3 flex justify-center text-center'>
+    <div className='bg-babypink dark:bg-bpdm p-3 flex justify-center text-center'>
       <button  onClick={handleLogOut} className='py-2 px-4 text-bold bg-darkcherry text-white rounded'>
         Sign Out
       </button>

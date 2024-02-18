@@ -58,10 +58,10 @@ function Categories({ data }) {
 
   return (
 
-    <div className="section px-10" id="recipie">
-      <div className="flex flex-col items-center">
+    <div className="section px-10 dark:bg-bpdm" id="recipie">
+      <div className="flex flex-col items-center dark:bg-card">
         <div className="text-#xl text-center font-bold font-normal">
-          <h2 className="font-logo text-cherry text-5xl py-10">
+          <h2 className="font-logo text-cherry text-5xl py-10 dark:text-white">
             {" "}
             Hot Selling Ice Creams
           </h2>
@@ -75,12 +75,12 @@ function Categories({ data }) {
               >
                 <img src={item.img} alt="" className="rounded-lg mb-4" />
                 <div className="flex items-center justify-between mb-4">
-                  <div className="md:text-xl text-[1rem] font-semibold lg:text-2xl">
+                  <div className="md:text-xl text-[1rem] font-semibold lg:text-2xl dark:text-darkcherry">
                     {item.title}
                   </div>
                 </div>
 
-                <p className="text-[0.85rem] opacity-70 mb-4 font-normal">
+                <p className="text-[0.85rem] opacity-70 mb-4 font-normal dark:text-white">
                   {" "}
                   {item.desc}
                 </p>
@@ -92,7 +92,7 @@ function Categories({ data }) {
                   />
                 </div>
                 <button
-                  className="my-2 uppercase w-56  bg-darkcherry text-babypink p-2 ring-1 hover:ring-darkcherry hover:bg-babypink hover:text-darkcherry rounded-full "
+                  className="my-2 uppercase w-56 dark:bg-cb bg-darkcherry dark:bg text-babypink p-2 ring-1 ring-cb hover:ring-darkcherry dark:hover:bg-babypink hover:bg-babypink hover:text-darkcherry rounded-full dark "
                   onClick={() => addToCart(item.id)}
                 >
                   Add to Cart
@@ -104,29 +104,29 @@ function Categories({ data }) {
 
         {/* display to cart */}
 
-        <div className="flex  flex-col justify-center items-center bg-babypink  w-full">
-          <h1 className="text-darkcherry font-bold font-logo text-5xl p-10 ">
+        <div className="flex  flex-col justify-center items-center dark:bg-bpdm bg-babypink  w-full">
+          <h1 className="text-darkcherry font-bold font-logo text-5xl p-10 dark:text-babypink">
             My Cart
           </h1>
-          <p className="text-3xl font-bold">Total: {totalAmount()}</p>
+          <p className="text-3xl font-bold dark:text-white">Total: {totalAmount()}</p>
           <div className="w-11//12 md:w-7/12 sm:w-11/12">
             {data.map((product) => {
               if (cartItems[product.id] > 0) {
                 return (
                 <div key={product.id}>
                   <div className="py-1 flex justify-between items-center ring-2 w-full px-3 rounded ring-white mb-2">
-                    <div className="flex items-center">
-                      <img src={product.img} alt="" className="h-20 w-30" />
-                      x<p className="text-2xl font-bold pl-2 sm:text-xs">{cartItems[product.id]}</p>
+                    <div className="flex items-center dark:text-white">
+                      <img src={product.img} alt="" className="h-20 w-30 dark:text-white" />
+                      x<p className="text-2xl font-bold pl-2 sm:text-xs dark:text-white">{cartItems[product.id]}</p>
                       
                     </div>
                     <div className="flex flex-col gap-2 font-bold"> 
-                           <button  onClick={() => removeFromCart(product.id)} className="text-darkcherry ring-1 ring-darkcherry hover:bg-darkcherry hover:text-babypink px-2 py-1 rounded" >REMOVE</button>
-                        <button onClick={() => addToCart(product.id)}>Add</button>
-                        <button onClick={() => subFromCart(product.id)}>Reduce</button>
+                           <button  onClick={() => removeFromCart(product.id)} className="text-darkcherry dark:text-white ring-1 ring-darkcherry dark:ring-white hover:bg-darkcherry hover:text-babypink px-2 py-1 rounded" >REMOVE</button>
+                        <button onClick={() => addToCart(product.id)} className="dark:text-white">Add</button>
+                        <button onClick={() => subFromCart(product.id)} className="dark:text-white">Reduce</button>
                         </div>
                   </div>
-                  <div className="flex item-center space-x-4 italic">
+                  <div className="flex item-center space-x-4 italic dark:text-white">
                     <p>{product.title}</p>
                     <p>-</p>
                     <p>{product.price}</p>

@@ -19,10 +19,10 @@ function Price({ price, id, options }) {
       <div className="flex gap-4">
         {options.map((option, index) => (
           <button
-            className="min-w-[6rem] p-1 ring-1 ring-darkcherry text-darkcherry rounded-md"
+            className="min-w-[6rem] p-1 ring-1 ring-darkcherry dark:bg-card text-darkcherry rounded-md"
             key={option.title}
             style={{
-              background: selected === index ? "#460d19" : "white",
+              background: selected === index ? "#320307" : "white",
               color: selected === index ? "white" : "#460d19",
             }}
             onClick={() => setSelected(index)}
