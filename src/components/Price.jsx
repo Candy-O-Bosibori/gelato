@@ -13,8 +13,8 @@ function Price({ price, id, options }) {
   }, [quantity, selected, options, price]);
 
   return (
-    <div className="flex flex-col gap-2">
-      <h2 className="text-xl font-bold "> KES {total.toFixed(2)}</h2>
+    <div className="flex flex-col gap-2 dark:text-white">
+      <h2 className="text-xl font-bold dark:text-white"> KES {total.toFixed(2)}</h2>
       {/* options */}
       <div className="flex gap-4">
         {options.map((option, index) => (

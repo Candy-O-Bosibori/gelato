@@ -70,12 +70,12 @@ function Categories({ data }) {
           {data.map((item) => {
             return (
               <div
-                className="p-4 shadow-lg hover:shadow transition-all duration-300 cursor-pointer"
+                className="p-4 shadow-xl dark:shaddow-2xl rounded hover:shadow transition-all duration-300 cursor-pointer"
                 key={item.id}
               >
                 <img src={item.img} alt="" className="rounded-lg mb-4" />
                 <div className="flex items-center justify-between mb-4">
-                  <div className="md:text-xl text-[1rem] font-semibold lg:text-2xl dark:text-darkcherry">
+                  <div className="md:text-xl text-[1rem] font-semibold lg:text-2xl dark:text-white">
                     {item.title}
                   </div>
                 </div>
