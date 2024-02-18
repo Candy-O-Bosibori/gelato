@@ -109,7 +109,7 @@ function Categories({ data }) {
             My Cart
           </h1>
           <p className="text-3xl font-bold">Total: {totalAmount()}</p>
-          <div className="w-12/12 md:w-7/12 sm:w-11/12">
+          <div className="w-11//12 md:w-7/12 sm:w-11/12">
             {data.map((product) => {
               if (cartItems[product.id] > 0) {
                 return (

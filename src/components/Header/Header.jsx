@@ -4,12 +4,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'Welcome', href: '/', current: true },
-  { name: 'Home', href: 'private', current: false },
-  { name: 'About', href: 'about', current: false },
- 
-
-  { name: 'My Cart', href: 'mucart', current: false },
+  { name: 'Welcome', href: '/gelato', current: true },
+  { name: 'Home', href: '/private', current: false },
+  { name: 'About', href: '/about', current: false },
+  { name: 'My Cart', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -48,7 +46,7 @@ function classNames(...classes) {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-darkcherry text-white' : 'text-gray-300 hover:bg-stone-200 hover:text-darkcherry',
+                           'text-gray-300 hover:bg-stone-200 hover:text-darkcherry',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}

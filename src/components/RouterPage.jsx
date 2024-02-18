@@ -34,7 +34,7 @@ function RouterPage() {
   return (
     <div>
        <Routes>
-          <Route index path="/" element={<FirstPage></FirstPage>}></Route>
+          <Route index path="/gelato" element={<FirstPage></FirstPage>}></Route>
           <Route index path="register" element={<Register></Register>}></Route>
           <Route index path="login" element={<Login></Login>}></Route>
           <Route
