@@ -60,3 +60,40 @@ Users can modify their cart, such as adding or removing items and adjusting quan
 ## Features
 
 ### Welcome page
+![welcome page](<readmePictures/welcomepage.png>)
+
+### Authentication 
+using firebase
+1. Sign up
+2. Sign in
+3. sign out
+
+![Sign up](<readmePictures/signup page.png>)
+![Sign in](<readmePictures/login.png>)
+![Sign out](<readmePictures/sign out.png>)
+
+### Header
+Header with a navigation bar to welcome,home and about pages, an account section, and a light and drk mode button
+
+### Intro
+
+![Intro page](<readmePictures/intopage.png>)
+
+### Menu
+Menu with ice creame pictures , prices, sizes and button to add to cart
+
+![Menu](<readmePictures/Menu.png>)
+
+### My Cart
+ 
+ ![Cart](<readmePictures/mycart.png>)
+
+ ### Footer
+
+ ![Footer](<readmePictures/footer.png>)
+
+
+
+### LINKS
+[live site](http://candy-o-bosibori.github.io/gelato/)
+
