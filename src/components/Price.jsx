@@ -14,13 +14,15 @@ function Price({ price, id, options }) {
 
   return (
     <div className="flex flex-col gap-2 dark:text-white">
+      {/* price */}
       <h2 className="text-xl font-bold dark:text-white"> KES {total.toFixed(2)}</h2>
-      {/* options */}
+      {/* options (small, medium,large)*/}
       <div className="flex gap-4">
         {options.map((option, index) => (
           <button
             className="min-w-[6rem] p-1 ring-1 ring-darkcherry dark:bg-card text-darkcherry rounded-md"
             key={option.title}
+            // change color if choice has been made
             style={{
               background: selected === index ? "#320307" : "white",
               color: selected === index ? "white" : "#460d19",

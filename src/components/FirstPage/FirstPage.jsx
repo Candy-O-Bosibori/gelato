@@ -10,9 +10,11 @@ export default function FirstPage() {
       <div className=" ">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
+            {/* Name of the site */}
             <h1 className="text-[100px] lg:text-[250px] font-logo tracking-tight text-darkcherry dark:text-babypink ">
               Gelato
             </h1>
+            {/* brife intro paragraf */}
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-white">
               Step into a world of frozen bliss at Galeto. From
               classic flavors to daring concoctions, we're here to satisfy your
@@ -20,6 +22,7 @@ export default function FirstPage() {
               let your taste buds dance with delight. Welcome to a world where
               every bite is a moment of pure joy.
             </p>
+            {/* links to the login and sign up  page*/}
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 to ="register"

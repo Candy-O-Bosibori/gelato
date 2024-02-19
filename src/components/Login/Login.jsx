@@ -17,6 +17,7 @@ function Login() {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
   }
 
+  // if submit-prevent default, remove the error, send this infor to the contex(sitewrapper)to make an account in fire base
   function logIn(e) {
     e.preventDefault();
 
@@ -32,6 +33,8 @@ function Login() {
       });
   }
 
+  // function to reset password
+
   function handlePasswordReset() {
     const email = prompt("Please enter your email");
     sendPasswordResetEmail(auth, email);
@@ -44,6 +47,7 @@ function Login() {
         <h1 className="text-4xl text-whitefont-bold text-center mb-6 dark:text-white">Login</h1>
         <form action="">
           <div className="relative my-4">
+            {/* email */}
             <input
              name="email"
               type="email"
@@ -53,6 +57,8 @@ function Login() {
             <label htmlFor="" className="dark:text-white">Your Email</label>
           </div>
           <div className="relative my-4">
+            
+            {/* password */}
             <input
               name="password"
               type="password"
@@ -61,7 +67,7 @@ function Login() {
             />
             <label htmlFor="" className="dark:text-white">Your Password</label>
           </div>
-
+{/* submit button */}
           <button
             type="submit"
             onClick={(e) => logIn(e)}

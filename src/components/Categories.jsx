@@ -67,6 +67,7 @@ function Categories({ data }) {
           </h2>
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-16">
+          {/* create a card for each of the ice creams */}
           {data.map((item) => {
             return (
               <div

@@ -17,9 +17,12 @@ function Register() {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
   }
 
+  // authenticate andcreate a user in firebase
   function handleSignup(e) {
     e.preventDefault();
+    // remove the error (id any)
     setError("");
+    // send this to the useContext to create the account in firrebase
     createUser(
       userCredentials.name,
       userCredentials.email,
@@ -46,6 +49,7 @@ function Register() {
         </h1>
         <form>
         <div className="relative my-4">
+          {/* name */}
             <input
               name="name"
               type="text"
@@ -57,6 +61,7 @@ function Register() {
             <label htmlFor="email">Your Name</label>
           </div>
           <div className="relative my-4">
+            {/* email */}
             <input
               name="email"
               type="text"
@@ -68,6 +73,7 @@ function Register() {
             <label htmlFor="email">Your Email</label>
           </div>
           <div className="relative my-4">
+            {/* password */}
             <input
               name="password"
               type="password"
@@ -86,11 +92,12 @@ function Register() {
           >
             Register
           </button>
-
+{/* if the registration was successfull i was to navigate to the home page(the restricted page) */}
           {error && <div className="text-red-800 text-[11px]"> {error} </div>}
           {registrationSuccess && <Navigate to="/private" />}
 
           <div>
+            {/* if already have an account redirect to the login page */}
             <span className="mt-4">
               Already Have an Account?
               <Link to="/login" className="text-blue-900 dark:text-blue-500">

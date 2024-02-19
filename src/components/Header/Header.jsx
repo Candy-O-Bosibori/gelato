@@ -52,10 +52,12 @@ const handleThemeSwitch = ()=> (
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
+                  {/* logo */}
                   <h1 className="font-logo text-5xl text-babypink">Galeto</h1>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
+                    {/* navigation area */}
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
@@ -139,6 +141,7 @@ const handleThemeSwitch = ()=> (
             </div>
           </div>
 
+{/* navbar when in a sm screen */}
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
